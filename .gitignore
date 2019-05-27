@@ -1,0 +1,13 @@
+*.png
+*.jpg
+*.pt
+__pycache__/
+/realTest_plot
+/syTest_plot
+/test_plot
+/snapshots_mask
+/snapshots_resnet
+/snapshots_resnet1
+datasets/__pycache__/
+cores/__pycache__/
+models/__pycache__/

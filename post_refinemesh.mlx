@@ -1,0 +1,24 @@
+<!DOCTYPE FilterScript>
+<FilterScript>
+ <filter name="Remove Isolated pieces (wrt Diameter)">
+  <Param max="85.0915" name="MinComponentDiag" value="8.50915" min="0" description="Enter max diameter of isolated pieces" tooltip="Delete all the connected components (floating pieces) with a diameter smaller than the specified one" type="RichAbsPerc"/>
+ </filter>
+ <filter name="Surface Reconstruction: Ball Pivoting">
+  <Param max="85.0915" name="BallRadius" value="0" min="0" description="Pivoting Ball radius (0 autoguess)" tooltip="The radius of the ball pivoting (rolling) over the set of points. Gaps that are larger than the ball radius will not be filled; similarly the small pits that are smaller than the ball radius will be filled." type="RichAbsPerc"/>
+  <Param name="Clustering" value="20" description="Clustering radius (% of ball radius)" tooltip="To avoid the creation of too small triangles, if a vertex is found too close to a previous one, it is clustered/merged with it." type="RichFloat"/>
+  <Param name="CreaseThr" value="90" description="Angle Threshold (degrees)" tooltip="If we encounter a crease angle that is too large we should stop the ball rolling" type="RichFloat"/>
+  <Param name="DeleteFaces" value="false" description="Delete intial set of faces" tooltip="if true all the initial faces of the mesh are deleted and the whole surface is rebuilt from scratch, other wise the current faces are used as a starting point. Useful if you run multiple times the algorithm with an incrasing ball radius." type="RichBool"/>
+ </filter>
+ <filter name="Close Holes">
+  <Param name="MaxHoleSize" value="30" description="Max size to be closed " tooltip="The size is expressed as number of edges composing the hole boundary" type="RichInt"/>
+  <Param name="Selected" value="false" description="Close holes with selected faces" tooltip="Only the holes with at least one of the boundary faces selected are closed" type="RichBool"/>
+  <Param name="NewFaceSelected" value="true" description="Select the newly created faces" tooltip="After closing a hole the faces that have been created are left selected. Any previous selection is lost. Useful for example for smoothing the newly created holes." type="RichBool"/>
+  <Param name="SelfIntersection" value="true" description="Prevent creation of selfIntersecting faces" tooltip="When closing an holes it tries to prevent the creation of faces that intersect faces adjacent to the boundary of the hole. It is an heuristic, non intersetcting hole filling can be NP-complete." type="RichBool"/>
+ </filter>
+ <filter name="Remove Isolated pieces (wrt Diameter)">
+  <Param max="85.0915" name="MinComponentDiag" value="8.50915" min="0" description="Enter max diameter of isolated pieces" tooltip="Delete all the connected components (floating pieces) with a diameter smaller than the specified one" type="RichAbsPerc"/>
+ </filter>
+ <filter name="Invert Faces Orientation">
+  <Param name="forceFlip" value="true" description="Force Flip" tooltip="If selected, the normals will always be flipped; otherwise, the filter tries to set them outside" type="RichBool"/>
+ </filter>
+</FilterScript>
